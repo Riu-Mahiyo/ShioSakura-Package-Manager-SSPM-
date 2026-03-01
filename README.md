@@ -80,7 +80,7 @@ sspm doctor
 | `brew` | Homebrew（需 macOS ≥ 13）|
 | `macports` | MacPorts（支持老版本 macOS，提供 .pkg 安装器）|
 
-> ⚠️ 若检测到 macOS < 12，SSPM 会提示改用 MacPorts 并引导安装。
+> ⚠️ 若检测到 macOS < 13，SSPM 会提示改用 MacPorts 并引导安装。
 
 ### FreeBSD（Linux/macOS 自动禁用）
 | Backend | 说明 |
