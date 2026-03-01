@@ -15,7 +15,7 @@
             [统一状态数据库]
 ```
 
-SSPM 不替换你的包管理器，而是**调度它们**。
+SSPM 不替换你的包管理器，而是**调度它们,起了冲突我们介入调停**
 
 ---
 
@@ -77,7 +77,7 @@ sspm doctor
 ### macOS
 | Backend | 说明 |
 |---------|------|
-| `brew` | Homebrew（需 macOS ≥ 12）|
+| `brew` | Homebrew（需 macOS ≥ 13）|
 | `macports` | MacPorts（支持老版本 macOS，提供 .pkg 安装器）|
 
 > ⚠️ 若检测到 macOS < 12，SSPM 会提示改用 MacPorts 并引导安装。
@@ -105,13 +105,13 @@ sspm doctor
 | Backend | 说明 |
 |---------|------|
 | `spk` | .spk 包格式（SSPM 原生）|
-| `amber` | Amber PM 包管理器 |
+| `amber` | Amber PM 包管理器（Spark Store） |
 
 ---
 
 ## 智能镜像源
 
-SSPM 自动检测你的 IP 区域并配置最近的镜像源：
+SSPM 可以自动检测你的 IP 区域并配置最近的镜像源：
 
 ```bash
 # 手动设置区域
@@ -121,8 +121,7 @@ SSPM_REGION=CN sspm install python3
 sspm install python3 --mirror=CN
 ```
 
-支持的区域：**CN（清华源）** | JP | KR | DE | US | UK | SG | AU
-
+支持的区域：** CN | JP | KR | DE | US | UK | SG | AU **
 > ✅ 只修改 SSPM 管理的源配置，用户自定义源绝对不会被修改。
 
 ---
