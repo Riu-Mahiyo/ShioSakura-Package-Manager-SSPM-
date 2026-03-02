@@ -1,4 +1,4 @@
-# SSPM — ShioSakura System Package Manager
+# SSPM — ShioSakura Package Manager
 
 **版本：v3.0.0** | GPLv2 | C++17
 
