@@ -195,11 +195,13 @@ SSPM detects your environment, picks the best available backend, resolves depend
 
 ### Linux / macOS / BSD
 
+(I Will do that in future,Please wait~~~)
+
 ```bash
 curl -fsSL https://sspm.dev/install.sh | sh
 ```
 
-Or build from source:
+Or build from source:(Now the way you can choose)
 
 ```bash
 git clone https://github.com/Riu-Mahiyo/ShioSakura-Package-Manager-SSPM-
@@ -208,13 +210,7 @@ cmake -B build && cmake --build build
 sudo cmake --install build
 ```
 
-### Windows
-
-```powershell
-winget install SSPM
-# or
-scoop install sspm
-```
+### Windows also like UNIX=LIKE SYSTEMS
 
 ---
 
