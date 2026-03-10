@@ -9,6 +9,7 @@
 [![Status](https://img.shields.io/badge/status-active%20development-brightgreen)](#)
 [![GitHub](https://img.shields.io/badge/GitHub-Riu--Mahiyo-181717?logo=github)](https://github.com/Riu-Mahiyo)
 [![Version](https://img.shields.io/badge/version-v4.0.0--Sakura-pink)](https://github.com/Riu-Mahiyo/ShioSakura-Package-Manager-SSPM-)
+Other language version READMEs are in the docs/readme
 
 > **SSPM** is a universal package manager orchestrator that sits on top of your system's native package managers.  
 > One command. Any distro. Any backend.
@@ -749,7 +750,9 @@ ctest --test-dir build
 
 ## 📄 License
 
-GPLv2 License — © 2025 [Riu-Mahiyo](https://github.com/Riu-Mahiyo)
+GPLv2 License — © 2026 [Riu-Mahiyo](https://github.com/Riu-Mahiyo) &&ShioSakura Corp.
+
+Made with ❤️
 
 ---
 
