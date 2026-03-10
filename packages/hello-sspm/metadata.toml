@@ -1,0 +1,15 @@
+[package]
+name             = "hello-sspm"
+version          = "1.0.0"
+epoch            = 0
+description      = "Hello World example SPK package"
+long_description = "A minimal example demonstrating the SSPM .spkg v2 package format."
+author           = "Riu-Mahiyo"
+maintainer       = "Riu-Mahiyo"
+license          = "MIT"
+homepage         = "https://github.com/Riu-Mahiyo/ShioSakura-Package-Manager-SSPM-"
+os               = "linux"
+arch             = ["x86_64", "aarch64", "riscv64"]
+category         = "tools"
+tags             = ["example", "demo", "sspm"]
+build_date       = "2025-01-01"

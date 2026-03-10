@@ -1,0 +1,73 @@
+# SSPM Configuration File
+# Location: ~/.config/sspm/config.yaml
+
+# ─── Backend Priority ───────────────────────────────────────────
+# SSPM will try backends in this order when installing packages.
+# Only backends that are installed on your system will be used.
+backend_priority:
+  - pacman       # Arch Linux
+  - apt          # Debian / Ubuntu
+  - dnf          # Fedora / RHEL
+  - brew         # macOS / Linuxbrew
+  - flatpak      # Universal (sandboxed)
+  - nix          # Nix / NixOS
+  - snap         # Snap (Canonical)
+  - spk          # SSPM native packages
+
+# ─── CLI Style ──────────────────────────────────────────────────
+cli:
+  style: apt             # apt | pacman | brew
+  output: text           # text | json | table
+  color: true
+  pager: true
+
+# ─── Mirror & Geo Settings ──────────────────────────────────────
+mirror:
+  auto_select: true      # Auto-select mirrors by geo IP
+  geo_detect: true       # Detect country via IP geolocation
+  vpn_mode: rule-based   # full | rule-based | off
+  preferred_region: ""   # e.g. JP, US, DE (leave blank for auto)
+
+# ─── Cache ──────────────────────────────────────────────────────
+cache:
+  path: ~/.cache/sspm
+  max_size: 2GB
+  prune_after: 30d       # Auto-prune files older than 30 days
+
+# ─── Logging ────────────────────────────────────────────────────
+log:
+  level: info            # debug | info | warn | error
+  path: ~/.local/state/sspm/log
+  max_size: 50MB
+  rotate: true
+
+# ─── Security ───────────────────────────────────────────────────
+# SSPM enforces package signature verification by default.
+# All packages from official repos must be signed with a trusted key.
+#
+# ⚠️  Disabling verification is dangerous and not recommended.
+#    If you disable it anyway, SSPM will warn you loudly every time.
+#    You've been warned. Proceed at your own risk. 💀
+security:
+  # Verify ed25519 signature on every .spkg package
+  # Set to false to skip signature checks (NOT RECOMMENDED)
+  verify_signatures: true
+
+  # Verify sha256 checksum of every installed file
+  # Set to false to skip file integrity checks (NOT RECOMMENDED)
+  verify_checksums: true
+
+  # Allow installing packages with NO signature file at all
+  # true = install with warning | false = block install (default)
+  allow_unsigned: false
+
+  # Path to trusted public keys directory
+  keys_dir: ~/.local/share/sspm/keys
+
+  # Optional: list of repos where verification is relaxed
+  # (e.g. for internal/local repos you control)
+  # untrusted_repos: []
+
+# ─── Database ───────────────────────────────────────────────────
+database:
+  path: ~/.local/share/sspm/sky.db

@@ -1,0 +1,7 @@
+[triggers]
+# No triggers for this simple example.
+# Example trigger that updates desktop database when .desktop files are installed:
+# [[trigger]]
+# name       = "update-desktop-db"
+# watch_path = "/usr/share/applications/"
+# action     = "update-desktop-database"

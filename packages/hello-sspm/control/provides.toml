@@ -1,0 +1,3 @@
+[provides]
+provides       = ["hello-sspm"]
+provides_files = ["/usr/bin/hello-sspm"]

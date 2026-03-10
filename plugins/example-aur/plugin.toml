@@ -1,0 +1,8 @@
+[plugin]
+name        = "aur"
+version     = "1.0.0"
+type        = "backend"
+description = "Arch User Repository (AUR) backend for SSPM"
+author      = "community"
+entry       = "libaur.so"
+repo        = "https://plugins.sspm.dev/aur"

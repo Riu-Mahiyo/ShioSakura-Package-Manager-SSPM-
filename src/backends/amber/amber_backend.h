@@ -1,0 +1,56 @@
+#pragma once
+// ═══════════════════════════════════════════════════════════
+//  layer/backends/amber_backend.h — Amber PM Backend
+//  官方站点：https://amber-pm.spark-app.store
+//
+//  架构文档要求：
+//    ✓ token 机制（Bearer auth）
+//    ✓ JSON 解析（下载包元数据）
+//    ✓ 下载 + SHA256 校验
+//    ✓ 安装失败自动 rollback
+//    ✓ SkyDB 记录
+//
+//  Amber PM 是独立包格式，安装到 ~/.local/share/amber/ 或系统目录
+//  官方 CLI：amber（检查存在性）
+// ═══════════════════════════════════════════════════════════
+#include "sspm/backend.h"
+#include <string>
+
+namespace sspm::backends {
+
+struct AmberPkgMeta {
+    std::string name;
+    std::string version;
+    std::string downloadUrl;
+    std::string sha256;
+    std::string description;
+};
+
+class AmberBackend : public sspm::Backend {
+public:
+    std::string name() const override { return "amber"; }
+    bool is_available() const override;
+
+    sspm::Result install(const sspm::Package& pkg) override;
+    sspm::Result remove(const sspm::Package& pkg) override;
+    sspm::SearchResult search(const std::string& query) override;
+    sspm::Result update() override;
+    sspm::Result upgrade() override;
+    sspm::PackageList list_installed() override;
+    std::optional<sspm::Package> info(const std::string& name) override;
+
+    // Amber 特有 API
+    static std::string     apiBase();
+    static std::string     token();               // 读取 ~/.config/sspm/amber.token
+    static bool            setToken(const std::string& tok);  // 写入 token
+
+    // 查询包元数据（通过 Amber API）
+    static AmberPkgMeta    fetchMeta(const std::string& pkg);
+    // 下载并校验包
+    static bool            downloadAndVerify(const AmberPkgMeta& meta,
+                                             const std::string& destPath);
+    // 本地安装已下载的包
+    static sspm::Result   installFile(const std::string& path);
+};
+
+} // namespace sspm::backends
